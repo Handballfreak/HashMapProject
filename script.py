@@ -10,7 +10,7 @@ class HashMap:
   
   def hash(self, key):
     hash_code = sum(key.encode())
-    return hsh_code
+    return hash_code
 
 
   def compress(self, hash_code):
@@ -31,10 +31,14 @@ class HashMap:
   def retrieve(self, key):
     array_index = self.compress(self.hash(key))
     list_at_index = self.array[array_index]
-    for item in list_at_array:
+    for item in list_at_index:
       if key == item[0]:
         return item[1]
     return None
 
 
 blossom = HashMap(len(flower_definitions))
+for element in flower_definitions:
+  blossom.assign(element[0], element[1])
+
+print(blossom.retrieve("rose"))
